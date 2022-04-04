@@ -16,6 +16,12 @@ router.post('/create-key', (req, res) => {
   res.json({ status: 'ok', key: newKey }).end()
 })
 
+router.post('/delete-key/:key?', (req, res) => {
+  const key = req.params.key
+  db.deleteKey(key)
+  res.json({ status: 'ok' }).end()
+})
+
 router.get('/check-key/:key?', (req, res) => {
   const key = req.params.key
   const validKey = db.vaildKey(key)

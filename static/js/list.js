@@ -3,6 +3,7 @@ const UPDATE_CODE_TEMPLATE = 'curl -d "ip=$(hostname -i)&hostname=$(hostname)&fq
 const key = window.localStorage.getItem(LS_KEY)
 
 let fellowTemplate
+let running = true
 
 const fillList = (fellowes) => {
   $('[data-section=fellowes]').empty()
@@ -50,6 +51,8 @@ const fillList = (fellowes) => {
 }
 
 const refresh = () => {
+  if (!running) return
+
   $.get(`/api/fellowes/${key}`, (data) => {
     if (data.status === 'ok') {
       if (data.fellowes) {
@@ -62,12 +65,20 @@ const refresh = () => {
   })
 }
 
+const deleteKey = () => {
+  running = false
+
+  $.post(`/api/delete-key/${key}`, (data) => {
+    window.location.href = '/'
+  })
+}
+
 $(() => {
   fellowTemplate = $('template[data-template=fellow]').html()
 
   let updateCode = UPDATE_CODE_TEMPLATE.replace('#serverurl#', document.location.origin)
   updateCode = updateCode.replace('#key#', key)
   $('[data-value=updatecode]').text(updateCode)
-
+  $('[data-btn=deletekey]').click(deleteKey)
   refresh()
 })

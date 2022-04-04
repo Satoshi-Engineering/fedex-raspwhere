@@ -20,6 +20,11 @@ const addKey = (newKey) => {
   db.save()
 }
 
+const deleteKey = (key) => {
+  db.get('keys').get(key).delete()
+  db.save()
+}
+
 const vaildKey = (key) => {
   return db.get('keys').get(key).value() !== undefined
 }
@@ -42,5 +47,6 @@ module.exports = {
   addKey,
   vaildKey,
   addPing,
+  deleteKey,
   getFellowes,
 }

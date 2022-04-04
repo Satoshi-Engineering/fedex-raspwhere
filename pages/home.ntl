@@ -1,34 +1,34 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>#title#</title>
-        <meta name="description" content="We make you play!">
-        <meta name="author" content="TheSpielplatz">
+  <title>#title#</title>
+  <meta name="description" content="We make you play!">
+  <meta name="author" content="TheSpielplatz">
 
-        <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
-        <link rel="manifest" href="/static/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+  <link rel="manifest" href="/static/site.webmanifest">
 
-        <link href="/static/lib/bulma/bulma.css" rel="stylesheet">
-        <link href="/static/lib/fontawesome/css/all.min.css" rel="stylesheet">
-        <link href="/static/css/main.css" rel="stylesheet">
+  <link href="/static/lib/bulma/bulma.css" rel="stylesheet">
+  <link href="/static/lib/fontawesome/css/all.min.css" rel="stylesheet">
+  <link href="/static/css/main.css" rel="stylesheet">
 
-        <script src="/static/js/jquery-3.6.0.min.js"></script>
-        <script src="/static/js/home.js"></script>
-    </head>
+  <script src="/static/js/jquery-3.6.0.min.js"></script>
+  <script src="/static/js/home.js"></script>
+</head>
 
-    <body>
-        <nav class="navbar">
-            <div class="navbar-brand pl-3 pt-1">
-                <p class="navbar-item title is-4 cursor has-text-white">#title#</p>
-            </div>
-            <div class="navbar-menu">
-                <div class="navbar-end">
-                    <span class="navbar-item is-hidden" data-section="key">
+<body>
+<nav class="navbar">
+  <div class="navbar-brand pl-3 pt-1">
+    <p class="navbar-item title is-4 cursor has-text-white">#title#</p>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-end">
+                    <span class="navbar-item is-hidden">
                       <a class="button is-custom1" data-btn="key">
                         <span class="icon">
                           <i class="fa-solid fa-key"></i>
@@ -36,32 +36,39 @@
                         <span data-section-key="value"></span>
                       </a>
                     </span>
-                </div>
-            </div>
-        </nav>
+    </div>
+  </div>
+</nav>
 
-        <div class="section">
-            <div class="container has-text-centered">
-                <p class="title t-xl has-text-white">Where is my Raspberry Pi ?</p>
-                <p class="subtitle t-xl has-text-white">Let's discover your little fellow</p>
-                <button class="button" data-btn="create-key">Create New Key</button>
-            </div>
-        </div>
+<div class="section">
+  <div class="container has-text-centered">
+    <p class="title t-xl has-text-white">Where is my Raspberry Pi ?</p>
+    <p class="subtitle t-xl has-text-white">Let's discover your little fellow</p>
+    <button class="button is-hidden" data-btn="create-key" data-section="newkey">Create New Key</button>
+    <button class="button is-custom1 is-hidden" data-btn="key" data-section="key">
+      <span class="icon">
+        <i class="fa-solid fa-key"></i>
+      </span>
+      <span data-section-key="value"></span>
+    </button>
 
-        <div class="footer">
-            <nav class="level">
-                <div class="level-left">
-                    <div class="level-item pl-2">
-                        <figure class="image is-48x48">
-                            <img width="70" height="40" src="/static/img/tsp_70x112.png" alt="TheSpielplatz" scale="0">
-                        </figure>
-                    </div>
-                </div>
-                <div class="level-right pr-4">
-                    <p class="level-item has-text-grey">Version: #version#</p>
-                </div>
-            </nav>
-        </div>
-    </body>
+  </div>
+</div>
+
+<div class="footer">
+  <nav class="level">
+    <div class="level-left">
+      <div class="level-item pl-2">
+        <figure class="image is-48x48">
+          <img width="70" height="40" src="/static/img/tsp_70x112.png" alt="TheSpielplatz" scale="0">
+        </figure>
+      </div>
+    </div>
+    <div class="level-right pr-4">
+      <p class="level-item has-text-grey">Version: #version#</p>
+    </div>
+  </nav>
+</div>
+</body>
 </html>
 

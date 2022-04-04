@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>#title#</title>
+  <title>RaspWhere - List</title>
   <meta name="description" content="We make you play!">
   <meta name="author" content="TheSpielplatz">
 
@@ -53,6 +53,14 @@
             </div>
           </div>
         </span>
+      <span class="navbar-item">
+        <button class="button is-danger" data-btn="deletekey">
+          <span class="icon">
+            <i class="fa-solid fa-trash"></i>
+          </span>
+          <span>Delete Key & Remove Data</span>
+        </button>
+      </span>
     </div>
   </div>
 </nav>
@@ -94,10 +102,10 @@
 <div class="container is-max-desktop">
   <article class="message">
     <div class="message-header">
-      <p>How add your little fellow</p>
+      <p>How add a little fellow</p>
     </div>
     <div class="message-body">
-      <p>Access ???? on the sd card of your raspberry pi and add the following line:</p>
+      <p>Add the following line to your raspberry pi</p>
       <pre data-value="updatecode"></pre>
     </div>
   </article>
