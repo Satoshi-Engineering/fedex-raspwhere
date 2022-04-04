@@ -97,7 +97,7 @@
       <p>How add your little fellow</p>
     </div>
     <div class="message-body">
-      <p>Copy the folloing line to somewhere</p>
+      <p>Access ???? on the sd card of your raspberry pi and add the following line:</p>
       <pre data-value="updatecode"></pre>
     </div>
   </article>

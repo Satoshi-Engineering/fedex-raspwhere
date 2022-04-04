@@ -3,10 +3,13 @@ Helperservice to find your raspberry pi (or arduino or ...) in your LAN, because
 
 ### Todo
 
-- [ ] Create Key
-- [ ] API
+- [x] Create Key
+- [x] API
+- [x] Show Found Raspis
 - [ ] Raspi Script
-- [ ] Show Found Raspis
+  - https://raspberrypi-guide.github.io/programming/run-script-on-boot
+  - https://github.com/nmcclain/raspberian-firstboot
+  - https://elinux.org/RPi_raspi-config#First-boot_activity
 - [ ] Logout & Delete
 - [ ] Home | Steps
 - [ ] Home | FAQ's
