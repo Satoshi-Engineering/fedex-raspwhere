@@ -1,8 +1,6 @@
 const express = require('express')
 const db = require('./db.js')
 
-// Data Structure: keys.deviceName."name" .ping .ip
-
 const router = express.Router()
 
 const createKey = () => {
@@ -46,8 +44,7 @@ router.get('/fellowes/:key/', (req, res) => {
   const fellowes = db.getFellowes(key)
   let sortedFellowes = Object.values(fellowes)
       .map((fOrig) => {
-        let f = Object.assign(fOrig)
-        console.log(f)
+        let f = { ...fOrig }
         if (typeof f.fqdn !== 'string' || f.fqdn.length <= 0) {
           delete f.fqdn
         }

@@ -98,7 +98,7 @@
     </div>
     <div class="message-body">
       <p>Copy the folloing line to somewhere</p>
-      <pre>curl -d "ip=$(hostname -i)&hostname=$(hostname)&fqdn=$(hostname -f)" #raspiurl#</pre>
+      <pre data-value="updatecode"></pre>
     </div>
   </article>
 </div>

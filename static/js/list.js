@@ -1,5 +1,7 @@
 const LS_KEY = 'raspwhere-key'
+const UPDATE_CODE_TEMPLATE = 'curl -d "ip=$(hostname -i)&hostname=$(hostname)&fqdn=$(hostname -f)" #serverurl#/api/ping/#key#/'
 const key = window.localStorage.getItem(LS_KEY)
+
 let fellowTemplate
 
 const fillList = (fellowes) => {
@@ -16,6 +18,10 @@ const fillList = (fellowes) => {
     if (diff > 60) {
       lastUpdate = Math.floor(diff / 60) + ' min'
       lastUpdateStatus = 'is-dark'
+    }
+    if (diff > 60 * 60) {
+      lastUpdate ='> 1 hour'
+      lastUpdateStatus = 'is-light'
     }
 
     let fellow = $(fellowTemplate)
@@ -43,16 +49,25 @@ const fillList = (fellowes) => {
   })
 }
 
-$(() => {
-  fellowTemplate = $('template[data-template=fellow]').html()
-
+const refresh = () => {
   $.get(`/api/fellowes/${key}`, (data) => {
     if (data.status === 'ok') {
       if (data.fellowes) {
-        console.log(data.fellowes)
         $('[data-section=nodata]').addClass('is-hidden')
         fillList(data.fellowes)
+
+        setTimeout(refresh, 2 * 1000)
       }
     }
   })
+}
+
+$(() => {
+  fellowTemplate = $('template[data-template=fellow]').html()
+
+  let updateCode = UPDATE_CODE_TEMPLATE.replace('#serverurl#', document.location.origin)
+  updateCode = updateCode.replace('#key#', key)
+  $('[data-value=updatecode]').text(updateCode)
+
+  refresh()
 })
