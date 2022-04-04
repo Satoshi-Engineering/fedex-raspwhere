@@ -24,4 +24,16 @@ router.get('/check-key/:key?', (req, res) => {
   res.json({ status: 'ok', valid: validKey }).end()
 })
 
+router.post('/ping/:key/', (req, res) => {
+  const key = req.params.key
+  if (!db.vaildKey(key)) {
+    res.status(401).json({ status: 'error', message: 'unknown key' }).end()
+    return
+  }
+
+  db.addPing(key, req.body.ip, req.body.hostname, req.body.fqdn)
+
+  res.json({ status: 'ok' }).end()
+})
+
 module.exports = router

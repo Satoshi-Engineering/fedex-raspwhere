@@ -24,7 +24,18 @@ const vaildKey = (key) => {
   return db.get('keys').get(key).value() !== undefined
 }
 
+const addPing = (key, ip, hostname, fqdn) => {
+  db.get('keys').set(key, {
+    ip,
+    hostname,
+    fqdn,
+    tsutc: new Date().getTime()
+  })
+  db.save()
+}
+
 module.exports = {
   addKey,
-  vaildKey
+  vaildKey,
+  addPing
 }

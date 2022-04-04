@@ -1,5 +1,5 @@
 const express = require('express')
-const {name: NAME, VERSION} = require('../package.json')
+const {name: NAME, version: VERSION} = require('../package.json')
 const db = require('./db')
 
 const router = express.Router()
@@ -11,12 +11,17 @@ router.get('/', (req, res) => {
 
 // Default Route
 router.get('/list/:key', (req, res) => {
-  if (!db.vaildKey(req.params.key)) {
+  const key = req.params.key
+  if (!db.vaildKey(key)) {
     res.redirect('/')
     return
   }
 
-  res.render('list', { title: 'Well Done', 'version' : req.params.key })
+  res.render('list', {
+    title: 'Where is my raspberry pi?',
+    'version' : VERSION,
+    key
+  })
 })
 
 module.exports = router
