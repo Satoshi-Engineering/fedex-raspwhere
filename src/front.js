@@ -20,7 +20,7 @@ router.get('/list/:key', (req, res) => {
   res.render('list', {
     title: 'Where is my raspberry pi?',
     'version' : VERSION,
-    key
+    key,
   })
 })
 

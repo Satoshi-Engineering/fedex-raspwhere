@@ -1,64 +1,122 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>#title#</title>
-        <meta name="description" content="We make you play!">
-        <meta name="author" content="TheSpielplatz">
+  <title>#title#</title>
+  <meta name="description" content="We make you play!">
+  <meta name="author" content="TheSpielplatz">
 
-        <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
-        <link rel="manifest" href="/static/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+  <link rel="manifest" href="/static/site.webmanifest">
 
-        <link href="/static/lib/bulma/bulma.css" rel="stylesheet">
-        <link href="/static/lib/fontawesome/css/all.min.css" rel="stylesheet">
-        <link href="/static/css/main.css" rel="stylesheet">
+  <link href="/static/lib/bulma/bulma.css" rel="stylesheet">
+  <link href="/static/lib/fontawesome/css/all.min.css" rel="stylesheet">
+  <link href="/static/css/main.css" rel="stylesheet">
 
-        <script src="/static/js/jquery-3.6.0.min.js"></script>
+  <script src="/static/js/jquery-3.6.0.min.js"></script>
+  <script src="/static/js/list.js"></script>
+  <style>
+      .fellow-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+          grid-gap: 0.5em;
+      }
 
-    </head>
+      .fellow-card {
+          height: max-content;
+      }
 
-    <body>
-        <nav class="navbar">
-            <div class="navbar-brand pl-3 pt-1">
-                <p class="navbar-item title is-4 cursor has-text-white">#title#</p>
+      .fellow-time {
+          font-size: smaller;
+          font-style: italic;
+      }
+  </style>
+
+</head>
+
+<body>
+<nav class="navbar">
+  <div class="navbar-brand pl-3 pt-1">
+    <p class="navbar-item title is-4 cursor has-text-white">#title#</p>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-end">
+        <span class="navbar-item">
+          <div class="control">
+            <div class="tags has-addons">
+              <span class="tag is-info"><i class="fa-solid fa-key"></i></span>
+              <span class="tag">#key#</span>
             </div>
-                <div class="navbar-menu">
-                    <div class="navbar-end">
-                    <span class="navbar-item">
-                      <div class="control">
-                        <div class="tags has-addons">
-                          <span class="tag is-info"><i class="fa-solid fa-key"></i></span>
-                          <span class="tag">#key#</span>
-                        </div>
-                      </div>
-                    </span>
-                </div>
-            </div>
-        </nav>
+          </div>
+        </span>
+    </div>
+  </div>
+</nav>
 
-        <div class="section">
-            <div class="container has-text-centered">
-            </div>
+<div class="section">
+  <div class="container is-max-desktop" data-section="nodata">
+    <article class="message is-info">
+      <div class="message-body">
+        <p>No data recieved yet</p>
+      </div>
+    </article>
+  </div>
+  <div class="container fellow-container" data-section="fellowes">
+    <template data-template="fellow">
+      <div class="card fellow-card">
+      <header class="card-header">
+        <p class="card-header-title" data-value="title"></p>
+        <div class="card-header-icon">
+          <div class="tags has-addons">
+            <span class="tag" data-element="dish"><i class="fa-solid fa-satellite-dish"></i></span>
+            <span class="tag is-light" data-value="running"></span>
+          </div>
         </div>
-
-        <div class="footer">
-            <nav class="level">
-                <div class="level-left">
-                    <div class="level-item pl-2">
-                        <figure class="image is-48x48">
-                            <img width="70" height="40" src="/static/img/tsp_70x112.png" alt="TheSpielplatz" scale="0">
-                        </figure>
-                    </div>
-                </div>
-                <div class="level-right pr-4">
-                    <p class="level-item has-text-grey">Version: #version#</p>
-                </div>
-            </nav>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          <b>Found IP's</b>
+          <ul data-value="ips">
+          </ul>
+          <p data-section="fqdn"><b>Fully Qualified Domain Name</b><br><span data-value="fqdn"></span></p>
+          <time class="fellow-time" data-value="time"></time>
         </div>
-    </body>
+      </div>
+    </div>
+    </template>
+  </div>
+</div>
+
+<div class="container is-max-desktop">
+  <article class="message">
+    <div class="message-header">
+      <p>How add your little fellow</p>
+    </div>
+    <div class="message-body">
+      <p>Copy the folloing line to somewhere</p>
+      <pre>curl -d "ip=$(hostname -i)&hostname=$(hostname)&fqdn=$(hostname -f)" #raspiurl#</pre>
+    </div>
+  </article>
+</div>
+
+<div class="footer">
+  <nav class="level">
+    <div class="level-left">
+      <div class="level-item pl-2">
+        <figure class="image is-48x48">
+          <img width="70" height="40" src="/static/img/tsp_70x112.png" alt="TheSpielplatz" scale="0">
+        </figure>
+      </div>
+    </div>
+    <div class="level-right pr-4">
+      <p class="level-item has-text-grey">Version: #version#</p>
+    </div>
+  </nav>
+</div>
+</body>
 </html>
 

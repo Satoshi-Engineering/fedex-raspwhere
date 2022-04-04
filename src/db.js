@@ -25,7 +25,7 @@ const vaildKey = (key) => {
 }
 
 const addPing = (key, ip, hostname, fqdn) => {
-  db.get('keys').set(key, {
+  db.get('keys').get(key).get(hostname).set({
     ip,
     hostname,
     fqdn,
@@ -34,8 +34,13 @@ const addPing = (key, ip, hostname, fqdn) => {
   db.save()
 }
 
+const getFellowes = (key) => {
+  return db.get('keys').get(key).value()
+}
+
 module.exports = {
   addKey,
   vaildKey,
-  addPing
+  addPing,
+  getFellowes,
 }
