@@ -15,7 +15,7 @@ html, body, .navbar, .footer {
   background: rgb(33,37,41);
 }
 
-.navbar, .title, .subtitle, .footer {
+.navbar, .title, .subtitle, .footer, button {
   font-family: 'Bebas Neue', cursive;
 }
 
@@ -39,11 +39,22 @@ html, body, .navbar, .footer {
 
   background: #F7941E;
   -webkit-animation: blink 0.8s infinite;
-
 }
 
 @keyframes blink {
   0% { opacity: 0 }
   50% { opacity: 100% }
   100% { opacity: 0 }
+}
+
+.is-custom1 {
+  background-color: #F7941E;
+  border-color: #9e5907;
+  color: #F0F0F0;
+}
+
+.is-custom1:hover {
+  background-color: #dc7d0f;
+  border-color: #9e5907;
+  color: #FFFFFF;
 }

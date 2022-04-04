@@ -15,4 +15,16 @@ db.default({ keys: {} })
 // save changes to db
 db.save()
 
-module.exports = db
+const addKey = (newKey) => {
+  db.get('keys').set(newKey, {})
+  db.save()
+}
+
+const vaildKey = (key) => {
+  return db.get('keys').get(key).value() !== undefined
+}
+
+module.exports = {
+  addKey,
+  vaildKey
+}

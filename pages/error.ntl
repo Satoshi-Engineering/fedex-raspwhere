@@ -13,7 +13,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
     <link rel="manifest" href="/static/site.webmanifest">
 
-    <link href="static/lib/bulma/bulma.css" rel="stylesheet">
+    <link href="/static/lib/bulma/bulma.css" rel="stylesheet">
     <style>
         @font-face {
             font-family: 'Bebas Neue';
@@ -78,7 +78,7 @@
                 <div class="level-left">
                     <div class="level-item pl-2">
                         <figure class="image is-48x48">
-                            <img width="70" height="40" src="static/img/tsp_70x112.png" alt="TheSpielplatz" scale="0">
+                            <img width="70" height="40" src="/static/img/tsp_70x112.png" alt="TheSpielplatz" scale="0">
                         </figure>
                     </div>
                 </div>

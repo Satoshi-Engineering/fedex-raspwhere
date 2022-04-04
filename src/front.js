@@ -1,5 +1,6 @@
 const express = require('express')
 const {name: NAME, VERSION} = require('../package.json')
+const db = require('./db')
 
 const router = express.Router()
 
@@ -10,7 +11,11 @@ router.get('/', (req, res) => {
 
 // Default Route
 router.get('/list/:key', (req, res) => {
-  console.log(req.params.key)
+  if (!db.vaildKey(req.params.key)) {
+    res.redirect('/')
+    return
+  }
+
   res.render('list', { title: 'Well Done', 'version' : req.params.key })
 })
 
