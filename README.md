@@ -14,3 +14,7 @@ Helperservice to find your raspberry pi (or arduino or ...) in your LAN, because
   - https://elinux.org/RPi_raspi-config#First-boot_activity
 - [ ] Home | Steps
 - [ ] Home | FAQ's
+- [ ] Typescriptifizerung
+- [ ] Medium Article for the Use Case
+- [ ] Medium/LinkedIn for FedEx Day
+- [ ] Twitter & Co

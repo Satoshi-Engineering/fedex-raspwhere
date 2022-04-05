@@ -53,6 +53,14 @@
     </button>
 
   </div>
+  <div class="container is-max-desktop pt-2">
+    <article class="message is-info">
+      <div class="message-body">
+        <p>Helperservice to find your raspberry pi (or arduino or ...) in your LAN, because sometimes  .local special-use domain name is not working at home.
+        </p>
+      </div>
+    </article>
+  </div>
 </div>
 
 <div class="footer">
