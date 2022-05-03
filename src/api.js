@@ -35,7 +35,7 @@ router.post('/ping/:key/', (req, res) => {
     return
   }
 
-  db.addPing(key, req.body.ip, req.body.hostname, req.body.fqdn)
+  db.addPing(key, req.body.ip.trim(), req.body.hostname.trim(), req.body.fqdn.trim())
 
   res.json({ status: 'ok' }).end()
 })

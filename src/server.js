@@ -11,7 +11,6 @@ const PORT = process.env.NODE_PORT || 2222;
 const NAME = require('./../package.json').name;
 const VERSION = require('./../package.json').version;
 
-
 const app = express();
 app.use(favicon(__dirname + '/../static/img/favicon.png'));
 app.use('/static', express.static('static'));
@@ -47,7 +46,7 @@ app.set('view engine', 'ntl') // register the template engine
 
 // -----------------------> Logging
 app.use((req, res, next) => {
-  console.log(`${req.method}:${req.url} ${res.statusCode}`);
+  if (process.env.NODE_ENV && process.env.NODE_ENV === 'development') console.log(`${req.method}:${req.url} ${res.statusCode}`);
   next();
 });
 
@@ -68,7 +67,7 @@ const start = (callback) => {
   add404();
 
   server = app.listen(PORT, () => { // Listen on port 3000
-    console.log(`Listening on ${PORT}`); // Log when listen success
+    console.info(`Listening on ${PORT}`); // Log when listen success
 
     if (callback != undefined) {
       callback();
@@ -77,19 +76,19 @@ const start = (callback) => {
 }
 
 process.on('SIGINT', function() {
-  console.log('SIGINT signal received: closing server ...')
+  console.info('SIGINT signal received: closing server ...')
 
   server.close(() => {
-    console.log('server closed')
+    console.info('server closed')
     process.exit(0)
   })
 })
 
 process.on('SIGTERM', function() {
-  console.log('SIGTERM signal received: closing server ...')
+  console.info('SIGTERM signal received: closing server ...')
 
   server.close(() => {
-    console.log('server closed')
+    console.info('server closed')
     process.exit(0)
   })
 })

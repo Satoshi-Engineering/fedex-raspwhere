@@ -46,6 +46,7 @@ typings/
 
 # Webstorm
 .idea
+.env
 
 # stormdb data dir
 data

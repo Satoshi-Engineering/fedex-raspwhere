@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const server = require('./src/server');
 const front = require('./src/front')
 const api = require('./src/api')
