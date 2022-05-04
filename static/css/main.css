@@ -4,7 +4,7 @@
 }
 
 html {
-  overflow-y: hidden;
+  overflow-y: scroll;
 }
 body {
   letter-spacing: 0.5px;
@@ -21,12 +21,12 @@ html, body, .navbar, .footer {
 
 .title.t-xl {
   font-size: 3rem;
-  text-shadow: 0px 3px 0px #C56200;
+  text-shadow: 0 3px #C56200;
 }
 
 .subtitle.t-xl {
   font-size: 2rem;
-  text-shadow: 0px 2px 0px #C56200;
+  text-shadow: 0 2px #C56200;
 }
 
 .cursor::after{

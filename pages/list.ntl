@@ -102,11 +102,20 @@
 <div class="container is-max-desktop">
   <article class="message">
     <div class="message-header">
-      <p>How add a little fellow</p>
+      <p>Method: firstrun.sh</p>
     </div>
     <div class="message-body">
-      <p>Add the following line to your raspberry pi</p>
+      <p>Copy some lines of code into the firstrun.sh on your freshly created SD Card which creates and init.d service
+        to ping this server</p>
+      <div class="content">
+      <ol>
+        <li>Format SD Card with an rasperry pi image</li>
+        <li>Eject and Re-Insert the card</li>
+        <li>On the <code>BOOT</code> partition open the file <code>firstrun.sh</code> and copy the following
+          lines right before the <code>exit 0</code> statement at the end.</li>
+      </ol>
       <pre data-value="updatecode"></pre>
+      </div>
     </div>
   </article>
 </div>

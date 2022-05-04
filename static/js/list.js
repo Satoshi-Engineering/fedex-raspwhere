@@ -1,5 +1,29 @@
 const LS_KEY = 'raspwhere-key'
-const UPDATE_CODE_TEMPLATE = 'curl -d "ip=$(hostname -i)&hostname=$(hostname)&fqdn=$(hostname -f)" #serverurl#/api/ping/#key#/'
+const UPDATE_CODE_TEMPLATE = `# RaspWhere Ping Script - START
+echo "Add the RaspWhere Ping Script"
+
+cat <<'SCRIPT_EOT' >> /etc/init.d/rw-ping.sh
+#!/bin/bash
+
+### BEGIN INIT INFO
+# Provides:          rw-ping.sh
+# Required-Start:    $local_fs $network $remote_fs $syslog
+# Required-Stop:     $local_fs
+# Default-Start:     3 6
+# Default-Stop:
+# Short-Description: RaspWhere Pinging Service
+# Description:       RaspWhere Pinging Service
+### END INIT INFO
+
+curl -d "ip=$(hostname -I)&hostname=$(hostname)&fqdn=$(hostname -f)" http://#serverurl#/api/ping/#key#/
+
+exit 0
+
+SCRIPT_EOT
+chmod 755 /etc/init.d/rw-ping.sh
+update-rc.d rw-ping.sh defaults
+# RaspWhere Ping Script - END
+`
 const key = window.localStorage.getItem(LS_KEY)
 
 let fellowTemplate
@@ -68,7 +92,7 @@ const refresh = () => {
 const deleteKey = () => {
   running = false
 
-  $.post(`/api/delete-key/${key}`, (data) => {
+  $.post(`/api/delete-key/${key}`, () => {
     window.location.href = '/'
   })
 }

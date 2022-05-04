@@ -1,4 +1,4 @@
-# Add the RaspWhere Ping
+# RaspWhere Ping Script - START
 echo "Add the RaspWhere Ping Script"
 
 cat <<'SCRIPT_EOT' >> /etc/init.d/rw-ping.sh
@@ -21,3 +21,4 @@ exit 0
 SCRIPT_EOT
 chmod 755 /etc/init.d/rw-ping.sh
 update-rc.d rw-ping.sh defaults
+# RaspWhere Ping Script - END
