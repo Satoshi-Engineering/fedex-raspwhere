@@ -116,8 +116,9 @@
     <div class="level-left">
       <div class="level-item pl-2">
         <figure class="image is-48x48">
-          <img width="70" height="40" src="/static/img/tsp_70x112.png" alt="TheSpielplatz" scale="0">
+          <img src="/static/img/sate_112x112.png" alt="Satoshi Engineering Crew">
         </figure>
+        &nbsp;a FedExDay Project | by the Satoshi Engineering Crew
       </div>
     </div>
     <div class="level-right pr-4">
